@@ -29,7 +29,6 @@ parser.add_option("--outfile", action="store",type="string", dest="outfile",help
 
 tempname=str(random.randint(0,1000000000000))
 
-#/home/sm213/work/temp_other_peeps/for_ps/pt2hs.fa
 if options.references != False:
 	options.outgroups=options.references
 
