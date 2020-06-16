@@ -3,7 +3,7 @@ A wrapper to estimate admixture proportions and test ancestry models using qpAdm
 
 Example input:
 ```
-python2 qpadm_wrapper.py --file GENOTYPE_FILE --target ADMIXED_POP --sources NUMBER --references REF1,REF2,REF3,REF4,REF5 
+python2 qpadm_wrapper.py --file GENOTYPE_FILE --target ADMIXED_POP --sources NUMBER --references REF1,REF2,REF3,REF4,REF5 --temppath PATH_TO_TEMPORARY_FILES
 ```
 The wrapper will cycle through all NUMBER-wise combinations of the reference populations as sources [1, 2, 3 or maximum 4 is recommended]. 
 Alternatively, a specific set of populations (1, 2, 3 or 4) can be given as the --sources argument, in which case the wrapper will only run qpAdm for that model only.
@@ -46,6 +46,29 @@ Japanese.DG,Denisova.DG 	0.0636580648 	0.971,0.029 		0.003,0.003 	1015825 	Mbuti
 For more options, including specifying path to admixtools, see
 ```
 python2 qpadm_wrapper.py --help
+Usage: qpadm_wrapper.py [options] arg1 arg2
+
+Options:
+  -h, --help            show this help message and exit
+  --target=TARGET       target
+  --sources=SOURCES     sources
+  --references=REFERENCES
+                        list of reference populations
+  --outgroups=OUTGROUPS
+                        list of outgroups (synonymous with --references)
+  --file=FILE           file
+  --indfile=INDFILE     indfile
+  --temppath=TEMPPATH   path for temporary input and output files
+  --locus=LOCUS         locus
+  --snplist=SNPLIST     .snp file with subset of SNPs to use
+  --chromosome=CHROMOSOME
+                        chromosome
+  --numchrom=NUMCHROM   numchrom
+  --plink               plink
+  --details             details
+  --qpwave              qpwave
+  --fulloutput          fulloutput
+  --outfile=OUTFILE     outfile
 ```
 
 This tool is provided as-is with no warrenty, and is not under continual user support.
