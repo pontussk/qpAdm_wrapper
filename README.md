@@ -22,13 +22,15 @@ A useful feature is that populations can be pooled on-the-fly on the command lin
 
 Here is an example of usage where we estimate Denisovan ancestry in Papuan genomes using freely available data for 1.2M SNPs from the Reich lab (https://reich.hms.harvard.edu/downloadable-genotypes-present-day-and-ancient-dna-data-compiled-published-papers). Out of 28 possible pairs of a set of 9 reference populations, only 1 model fits the data, which is that Papuan genomes have ancestry related both to East Asia (approximated by Japanese in the model) and Denisovans (Siberian Denisovans in the model).
 
+See comments on each of the three model tests in the right margin.
+
 ```
 python2 qpadm_wrapper.py --file v42.4.1240K --target Papuan.DG --sources 2 --outgroups Japanese.DG,Denisova.DG,Dinka.DG,Mbuti.DG,Ju_hoan_North.DG+Khomani_San.DG,Altai_Neanderthal.DG,Vindija.DG,Chimp.REF | cut -f 2,4- | sort -rgk2 | head -n3
 28 combinations
 	
-Japanese.DG,Denisova.DG 	0.0636580648 	0.971,0.029 		0.003,0.003 	1015825 	Mbuti.DG -1.484593 #The only model that fits (P=0.06) estimates 2.9% +/- 0.3% Denisovan ancestry
-Altai_Neanderthal.DG,Vindija.DG 0.0275054402 	-271.122,272.122 	70.061,70.061 	1018748 	Ju_hoan_North.DG 0.736495 #The model with the second largest p-value has unreasonable admixture proportions (27200% and -27200% from each of two Neanderthals), and can be excluded
-Japanese.DG,Chimp.REF 		0.00601963502 	0.943,0.057 		0.005,0.005 	1031376 	Altai_Neanderthal.DG 2.722215 # This model has a very low p-value (0.006), and fits the archaic admixture as being from the outgroup chimpanzee.
+Japanese.DG,Denisova.DG 	0.0636580648 	0.971,0.029 		0.003,0.003 	1015825 	Mbuti.DG -1.484593 		#The only model that fits (P=0.06) estimates 2.9% +/- 0.3% Denisovan ancestry
+Altai_Neanderthal.DG,Vindija.DG 0.0275054402 	-271.122,272.122 	70.061,70.061 	1018748 	Ju_hoan_North.DG 0.736495 	#The model with the second largest p-value has unreasonable admixture proportions (27200% and -27200% from each of two Neanderthals), and can be excluded
+Japanese.DG,Chimp.REF 		0.00601963502 	0.943,0.057 		0.005,0.005 	1031376 	Altai_Neanderthal.DG 2.722215 	#This model has a very low p-value (0.006) so can be rejected, but fits the archaic admixture as being from the outgroup chimpanzee. We can see that the largest outlier statistic f4(Target, Fitted_target; BASE, Reference) is f4(Papuan,Fitted_Papuan; Denisova, Altai_Neandertal), Z=2.72 suggests that there is undermodelled affinity between the Denisovan (which is BASE here) and empirical Papuan genomes, compared to the fitted Papuan allele frequencies.
 
 ```
 
