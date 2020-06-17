@@ -25,7 +25,7 @@ Here is an example of usage where we estimate Denisovan ancestry in Papuan genom
 See comments on each of the three model tests in the right margin.
 
 ```
-python2 qpadm_wrapper.py --file v42.4.1240K --target Papuan.DG --sources 2 --outgroups Japanese.DG,Denisova.DG,Dinka.DG,Mbuti.DG,Ju_hoan_North.DG+Khomani_San.DG,Altai_Neanderthal.DG,Vindija.DG,Chimp.REF | cut -f 2,4- | sort -rgk2 | head -n3
+python2 qpadm_wrapper.py --file v42.4.1240K --target Papuan.DG --sources 2 --references Japanese.DG,Denisova.DG,Dinka.DG,Mbuti.DG,Ju_hoan_North.DG+Khomani_San.DG,Altai_Neanderthal.DG,Vindija.DG,Chimp.REF | cut -f 2,4- | sort -rgk2 | head -n3
 28 combinations
 	
 Japanese.DG,Denisova.DG 	0.0636580648 	0.971,0.029 		0.003,0.003 	1015825 	Mbuti.DG -1.484593 		#The only model that fits (P=0.06) estimates 2.9% +/- 0.3% Denisovan ancestry
@@ -37,7 +37,7 @@ Japanese.DG,Chimp.REF 		0.00601963502 	0.943,0.057 		0.005,0.005 	1031376 	Altai
 For testing a single model:
 
 ```
-python2 qpadm_wrapper.py --file v42.4.1240K --target Papuan.DG --sources Japanese.DG,Denisova.DG --outgroups Dinka.DG,Mbuti.DG,Ju_hoan_North.DG+Khomani_San.DG,Altai_Neanderthal.DG,Vindija.DG,Chimp.REF | cut -f 2,4-
+python2 qpadm_wrapper.py --file v42.4.1240K --target Papuan.DG --sources Japanese.DG,Denisova.DG --references Dinka.DG,Mbuti.DG,Ju_hoan_North.DG+Khomani_San.DG,Altai_Neanderthal.DG,Vindija.DG,Chimp.REF | cut -f 2,4-
 
 Japanese.DG,Denisova.DG 	0.0636580648 	0.971,0.029 		0.003,0.003 	1015825 	Mbuti.DG -1.484593
 
