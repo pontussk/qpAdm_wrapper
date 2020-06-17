@@ -71,4 +71,4 @@ Options:
   --outfile=OUTFILE     outfile
 ```
 
-This tool is provided as-is with no warrenty, and is not under continual user support.
+This tool is provided as-is with no warrenty, and is not under continual user support. Thanks to Anders Bergström for suggesting an improvement for temporary file names.
